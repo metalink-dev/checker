@@ -9,6 +9,7 @@ include *.spec
 include *.pot
 include *.po
 include *.ts
+include *.sfx
 
 prune cache
 prune jython

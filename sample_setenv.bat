@@ -1,4 +1,4 @@
-SET PYTHONDIR=c:\Python26
+SET PYTHONDIR=c:\Python27
 SET PYINSTALLERDIR=c:\pyinstaller_1.3\pyinstaller-1.3
 SET JYTHON_HOME="c:\jython2.5.0"
 REM SET JAVA_HOME="C:\Program Files\Java\jdk1.6.0_12"

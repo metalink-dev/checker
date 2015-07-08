@@ -8,85 +8,16 @@ import glob
 import zipfile
 
 APP_NAME = 'metalink-checker'
-VERSION = '6.0'
+VERSION = '6.1'
 LICENSE = 'GPL'
 DESC = 'A metalink checker and download client.'
 AUTHOR_NAME = 'Neil McNab'
-EMAIL = 'neil@nabber.org'
-URL = 'http://www.nabber.org/projects/metalink/checker/'
+EMAIL = 'nabber00@gmail.com'
+URL = 'https://github.com/metalink-dev/pymetalink'
 
-#main is first
-gmodules = ['console', 'metalink', 'GPG', 'download', 'checker']
-goutputfile = "metalinkc.py"
+PYMETALINK_URL = "https://github.com/metalink-dev/pymetalink/releases/download/v6.1/pymetalink-6.1.zip"
 
-readhandle = open("README.txt")
-gheader = readhandle.read()
-readhandle.close()
 
-def merge(header, modules, outputfile):
-    mymodules = modules
-    mymodules.reverse()
-    imports = []
-    redef = {}
-
-    for module in mymodules:
-        imports.extend(readfile(module, True, mymodules))
-
-        exec("import " + module)
-        moduleobj = eval(module)
-        listing = dir(moduleobj)
-        for stritem in listing:
-            item = getattr(moduleobj, stritem)
-
-            if not stritem.startswith("__") and type(item) != type(sys):
-                try:
-                    redef[module] += module + "." + stritem + " = " + stritem + "\n"
-                except KeyError:
-                    redef[module] = module + "." + stritem + " = " + stritem + "\n"
-
-    writehandle = open(outputfile, "w")
-    writehandle.write(header)
-
-    importdict = {}
-    newimports = []
-    for importline in imports:
-        if importline.startswith("import "):
-            importdict[importline] = 1
-        else:
-            newimports.append(importline)
-    newimports.extend(importdict.keys())
-    imports = newimports
-    #    writehandle.write(importline + "\n")
-    writehandle.writelines(imports)
-    writehandle.write("class Dummy:\n    pass\n")
-    
-    for modulename in modules:
-        filelist = readfile(modulename)
-        writehandle.writelines(filelist)
-        writehandle.write(modulename + " = Dummy()\n" + redef[modulename])
-        
-    writehandle.close()
-    return
-
-def readfile(modulename, imports=False, ignore=[]):
-    filelist = []
-    prevline = ""
-    filehandle = open(modulename + ".py")
-    line = filehandle.readline()
-    while line:
-        if line.strip().startswith("import "):
-            if imports and line.strip()[7:] not in ignore:
-                filelist.append(line.strip(" \t"))
-        elif prevline.strip().startswith("try: import "):
-            if imports and prevline.strip()[11:] not in ignore:
-                filelist.append(prevline.strip(" \t"))
-                filelist.append(line.strip(" \t"))
-        elif not imports and not line.strip().startswith("try: import "):
-            filelist.append(line)
-        prevline = line
-        line = filehandle.readline()
-    filehandle.close()
-    return filelist
 
 def clean():
     ignore = []
@@ -169,6 +100,8 @@ def localecompile():
             
 def rec_search(end, abspath = True):
     start = os.path.dirname(__file__)
+    if not start:
+        start = '.'
     mylist = []
     for root, dirs, files in os.walk(start):
         for filename in files:
@@ -180,12 +113,61 @@ def rec_search(end, abspath = True):
                     
     return mylist
 
-if sys.argv[1] == 'sdist':
-    scripts = rec_search(".py")
+
+
+if sys.argv[1] == 'translate':
+    localegen()
+    localecompile()
+
+elif sys.argv[1] == 'clean':
+    clean()
+
+elif sys.argv[1] == 'zip':
+    #print "Zipping up..."
+    create_zip("dist/", APP_NAME + "-" + VERSION + "-win32.zip")
+    
+
+elif sys.argv[1] == 'py2exe':
+        
+    import py2exe
+
+    #localegen()
+    #localecompile()
+    
+    setup(console = ["metalinkc.py"],
+      zipfile = None,
+      dependency_links=[PYMETALINK_URL],
+      install_requires=['pymetalink'],        
+      name = APP_NAME,
+      version = VERSION,
+      license = LICENSE,
+      description = DESC,
+      author = AUTHOR_NAME,
+      author_email = EMAIL,
+      url = URL
+      )
+    setup(windows = ["metalinkcw.py"],
+      zipfile = None,
+      dependency_links=[PYMETALINK_URL],
+      install_requires=['pymetalink'],        
+      name = APP_NAME,
+      version = VERSION,
+      license = LICENSE,
+      description = DESC,
+      author = AUTHOR_NAME,
+      author_email = EMAIL,
+      url = URL
+      )    
+      
+else:      
+    #scripts = rec_search(".py")
 
     localegen()
 
+    scripts = ['checker.py', 'metalinkc.py', 'metalinkcw.py']
     setup(scripts = scripts,
+      dependency_links=[PYMETALINK_URL],
+      install_requires=['pymetalink'],
 	#packages = packages,
       #data_files = data,
       name = APP_NAME,
@@ -196,46 +178,3 @@ if sys.argv[1] == 'sdist':
       author_email = EMAIL,
       url = URL
       )
-
-elif sys.argv[1] == 'merge':
-    merge(gheader, gmodules, goutputfile)
-
-elif sys.argv[1] == 'translate':
-    localegen()
-    localecompile()
-
-elif sys.argv[1] == 'clean':
-    clean()
-
-elif sys.argv[1] == 'py2exe':
-    merge(gheader, gmodules, goutputfile)
-        
-    import py2exe
-
-    #localegen()
-    #localecompile()
-    
-    setup(console = ["metalinkc.py"],
-        zipfile = None,
-      name = APP_NAME,
-      version = VERSION,
-      license = LICENSE,
-      description = DESC,
-      author = AUTHOR_NAME,
-      author_email = EMAIL,
-      url = URL
-      )
-    setup(windows = ["guitk.py"],
-        zipfile = None,
-      name = APP_NAME,
-      version = VERSION,
-      license = LICENSE,
-      description = DESC,
-      author = AUTHOR_NAME,
-      author_email = EMAIL,
-      url = URL
-      )
-
-elif sys.argv[1] == 'zip':
-    #print "Zipping up..."
-    create_zip("dist/", APP_NAME + "-" + VERSION + "-win32.zip")

@@ -9,7 +9,6 @@ SET PYTHONPATH=%PYTHONDIR%\python.exe
 
 rem ***** create the exe
 %PYTHONPATH% -OO setup.py py2exe 
-rem --packages=libappupdater
 
 %PYTHONPATH% setup.py zip
 
