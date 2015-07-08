@@ -51,8 +51,8 @@ import threading
 import time
 import binascii
 
-import download
-import proxy
+import metalink.download as download
+import metalink.proxy as proxy
 
 import locale
 import gettext

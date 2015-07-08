@@ -43,10 +43,10 @@ import socket
 import sys
 import os
 
-import download
+import metalink.download as download
 import checker
-import GPG
-import proxy
+import metalink.GPG as GPG
+import metalink.proxy as proxy
 
 import os.path
 import locale
