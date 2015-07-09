@@ -37,7 +37,7 @@
 #   1. You need to have Python installed.
 #   2. To check PGP signatures you need to install gpg (http://www.gnupg.org) or gpg4win (http://www.gpg4win.org/)
 #   3. Install with pip command:
-#      pip install metalink-checker -f https://github.com/metalink-dev/checker/releases/ -f https://github.com/metalink-dev/pymetalink/releases
+#      c:\python27\scripts\pip install -r https://raw.githubusercontent.com/metalink-dev/checker/master/requirements.txt metalink-checker
 #   4. Run on the command line using: python metalinkc.py
 #
 # Usage: metalinkc.py [-c|-d|-j|--convert|--rconvert] [options] arg1 arg2 ...
