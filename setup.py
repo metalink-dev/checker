@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from distutils.core import setup
+try:
+    from setuptools import setup
+except ImportError:
+    print "WARNING: Failing back to distutils"
+    from distutils.core import setup
 import sys
 import os.path
 import shutil
@@ -33,6 +37,9 @@ def clean():
     
     try:
         shutil.rmtree("build")
+    except: pass
+    try:
+        shutil.rmtree(APP_NAME.replace('-','_') + ".egg-info")
     except: pass
     try:
         shutil.rmtree("dist")
@@ -162,7 +169,7 @@ elif sys.argv[1] == 'py2exe':
 else:      
     #scripts = rec_search(".py")
 
-    localegen()
+    #localegen()
 
     scripts = ['checker.py', 'metalinkc.py', 'metalinkcw.py']
     setup(scripts = scripts,

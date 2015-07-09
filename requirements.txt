@@ -1,0 +1,3 @@
+pymetalink >= 6.1
+-f https://github.com/metalink-dev/pymetalink/releases/download/v6.1/pymetalink-6.1.zip
+-f https://github.com/metalink-dev/checker/releases/download/v6.1/metalink-checker-6.1.zip
