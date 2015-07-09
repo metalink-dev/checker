@@ -3,8 +3,8 @@
 ########################################################################
 #
 # Project: Metalink Checker
-# URL: http://www.nabber.org/projects/
-# E-mail: webmaster@nabber.org
+# URL: https://github.com/metalink-dev/checker
+# E-mail: nabber00@gmail.com
 #
 # Copyright: (C) 2007-2010, Neil McNab
 # License: GNU General Public License Version 2
@@ -23,11 +23,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
-#
-# Filename: $URL: https://metalinks.svn.sourceforge.net/svnroot/metalinks/checker/checker.py $
-# Last Updated: $Date: 2010-04-21 22:05:23 -0700 (Wed, 21 Apr 2010) $
-# Version: $Rev: 653 $
-# Author(s): Neil McNab
 #
 # Description:
 #   GUI for checking metalink files.

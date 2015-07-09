@@ -2,8 +2,8 @@
 ########################################################################
 #
 # Project: Metalink Checker
-# URL: http://www.nabber.org/projects/
-# E-mail: webmaster@nabber.org
+# URL: https://github.com/metalink-dev/checker
+# E-mail: nabber00@gmail.com
 #
 # Copyright: (C) 2007-2011, Neil McNab
 # License: GNU General Public License Version 2
@@ -23,10 +23,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #
-# Filename: $URL: https://metalinks.svn.sourceforge.net/svnroot/metalinks/checker/metalink.py $
-# Last Updated: $Date: 2008-03-24 00:31:39 -0700 (Mon, 24 Mar 2008) $
-# Version: $Rev: 130 $
-# Author(s): Neil McNab
 #
 # Description:
 #   Metalink Checker is a command line application that checks general 
@@ -34,13 +30,15 @@
 # the files, checks their SHA1 or MD5 verification and verifies that the 
 # files are working.
 #
-#   Command line application and Python library that checks or downloads
-# metalink files.  Requires Python 2.5 or newer.
+#   Command line application and that checks or downloads
+# metalink files.  Requires Python 2.7 or newer.
 #
 # Instructions:
 #   1. You need to have Python installed.
 #   2. To check PGP signatures you need to install gpg (http://www.gnupg.org) or gpg4win (http://www.gpg4win.org/)
-#   3. Run on the command line using: python metalink.py
+#   3. Install with pip command:
+#      pip install metalink-checker -f https://github.com/metalink-dev/checker/releases/ -f https://github.com/metalink-dev/pymetalink/releases
+#   4. Run on the command line using: python metalinkc.py
 #
 # Usage: metalinkc.py [-c|-d|-j|--convert|--rconvert] [options] arg1 arg2 ...
 #
@@ -59,7 +57,7 @@
 #   -k DIR, --pgp-keys=DIR
 #                         Directory with the PGP keys that you trust (default:
 #                         working directory)
-#  -p FILE, --pgp-store=FILE
+#   -p FILE, --pgp-store=FILE
 #                         File with the PGP keys that you trust (default:
 #                         ~/.gnupg/pubring.gpg)
 #   -g GPG, --gpg-binary=GPG
@@ -77,13 +75,6 @@
 #   -w WRITEDIR           Directory to write output files to (default: current
 #                         directory)
 #
-# Library Instructions:
-#   - Use as expected.
-#
-# import metalink
-#
-# files = metalink.get("file.metalink", os.getcwd())
-# results = metalink.check_metalink("file.metalink")
 #
 # CHANGELOG:
 #
