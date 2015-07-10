@@ -11,7 +11,7 @@ import shutil
 import glob
 import zipfile
 
-APP_NAME = 'metalink-checker'
+APP_NAME = 'metalinkc'
 VERSION = '6.1'
 LICENSE = 'GPL'
 DESC = 'A metalink checker and download client.'
@@ -143,6 +143,7 @@ elif sys.argv[1] == 'py2exe':
     
     setup(console = ["metalinkc.py"],
       zipfile = None,
+      packages = ['metalinkc'],
       dependency_links=[PYMETALINK_URL],
       install_requires=['pymetalink'],        
       name = APP_NAME,
@@ -155,6 +156,7 @@ elif sys.argv[1] == 'py2exe':
       )
     setup(windows = ["metalinkcw.py"],
       zipfile = None,
+      packages = ['metalinkc'],
       dependency_links=[PYMETALINK_URL],
       install_requires=['pymetalink'],        
       name = APP_NAME,
@@ -171,11 +173,11 @@ else:
 
     #localegen()
 
-    scripts = ['checker.py', 'metalinkc.py', 'metalinkcw.py']
+    scripts = ['metalinkc.py', 'metalinkcw.py']
     setup(scripts = scripts,
       dependency_links=[PYMETALINK_URL],
       install_requires=['pymetalink'],
-	#packages = packages,
+      packages = ['metalinkc'],
       #data_files = data,
       name = APP_NAME,
       version = VERSION,

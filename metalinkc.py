@@ -39,7 +39,7 @@ import sys
 import os
 
 import metalink.download as download
-import checker
+import metalinkc
 import metalink.GPG as GPG
 import metalink.proxy as proxy
 
@@ -78,7 +78,7 @@ def run():
     '''
     # Command line parser options.
     usage = "usage: %prog [-c|-d|-j|--convert|--rconvert] [options] arg1 arg2 ..."
-    parser = optparse.OptionParser(version=checker.ABOUT, usage=usage)
+    parser = optparse.OptionParser(version=metalinkc.ABOUT, usage=usage)
     parser.add_option("--download", "-d", action="store_true", dest="download", help=_("Actually download the file(s) in the metalink"))
     parser.add_option("--check", "-c", action="store_true", dest="check", help=_("Check the metalink file URLs"))
     #parser.add_option("--file", "-f", dest="filevar", metavar="FILE", help=_("Metalink file to check or file to download"))
@@ -161,7 +161,7 @@ def run():
         text = handle.read()
         handle.close()
 
-        page = checker.Webpage()
+        page = metalinkc.Webpage()
         page.set_url(options.html)
         page.feed(text)
         
@@ -169,7 +169,7 @@ def run():
             if item.endswith(".metalink"):
                 print "=" * 79
                 print item
-                mcheck = checker.Checker()
+                mcheck = metalinkc.Checker()
                 mcheck.check_metalink(item)
                 results = mcheck.get_results()
                 print_totals(results)
@@ -180,7 +180,7 @@ def run():
         for item in args:
             print "=" * 79
             print item
-            mcheck = checker.Checker(options.only_testable)
+            mcheck = metalinkc.Checker(options.only_testable)
             mcheck.check_metalink(item)
             results = mcheck.get_results()
             result = print_totals(results)

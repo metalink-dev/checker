@@ -189,16 +189,12 @@ class Checker:
         return count
 
     def _add_result(self, key1, key2, value):
-        try:
-            self.results[key1]
-        except KeyError:
+        if key1 not in self.results:
             self.results[key1] = {}
 
-        try:
-            self.new_results[key1]
-        except KeyError:
+        if key1 not in self.new_results:
             self.new_results[key1] = {}
-            
+
         self.results[key1][key2] = value
         self.new_results[key1][key2] = value
 

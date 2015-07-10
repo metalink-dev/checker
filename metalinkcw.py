@@ -40,7 +40,7 @@ import webbrowser
 import threading
 import sys
 
-import checker
+import metalinkc
 
 def translate():
     '''
@@ -158,7 +158,7 @@ class AutoScrollbar(Tkinter.Scrollbar):
 class Application:
     def __init__(self, master):
         self.master = master
-        self.checker = checker.Checker()
+        self.checker = metalinkc.Checker()
         self.createWidgets()
 
         self.quit = self.exit
@@ -286,7 +286,7 @@ class Application:
             self.filename_txt.insert(0, result)
             
     def about(self):
-        tkMessageBox.showinfo(_("About") + " " + checker.NAME, checker.ABOUT)
+        tkMessageBox.showinfo(_("About") + " " + metalinkc.NAME, metalinkc.ABOUT)
 
     def website(self):
         webbrowser.open_new_tab(checker.WEBSITE)
@@ -298,7 +298,7 @@ class Application:
         
 def run():
     root = Tkinter.Tk()
-    root.title(checker.NAME)
+    root.title(metalinkc.NAME)
     root.geometry("850x500")
 
     app = Application(master=root)
