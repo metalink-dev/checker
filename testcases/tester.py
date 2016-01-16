@@ -62,18 +62,10 @@ IGNORE_TESTS = [] #["3_metalink-bad-piece1and2-without-torrent",
                 #"3_metalink-bad-piece2-without-torrent"]
 
 FILELIST = [
-    {"filename": "curl-7.18.1.tar.bz2",
-    "size": 1700966,
-    "checksums": {"sha1": "685b9388ee9e646158a83cd435f7be664816ad78"}},
-    {"filename": "curl-7.18.1.tar.gz",
-    "size": 2225578,
-    "checksums": {"sha1": "5d72f9fbf3eab6474a8dc22192056119030087f6"}},
-    {"filename": "curl-7.18.1.zip",
-    "size": 2787188,
-    "checksums": {"sha1": "87de05976acb909c7edbed8ba0935f0a51332195"}},
-    {"filename": "OOo_2.3.1_Win32Intel_install_en-US.exe",
-    "size": 112341981,
-    "checksums": {"sha1": "2c2849d173b1a5e6f8a3dc986383ee897bf4364d"}}
+    {"filename": "curl-7.46.0.tar.bz2",
+    "size": 3494481,
+    "checksums": {"sha1": "96fbe5abe8ecfb923e4ab0a579b3d6be43ef0e96"}},
+
 ]
 
 class TestMetalink(unittest.TestCase):
@@ -160,7 +152,7 @@ def suite(level = 3):
     filenames = os.listdir(filedir)
 
     for filename in filenames:
-        if filename.endswith(".meta4") and filename[:-9] not in IGNORE_TESTS:
+        if filename.endswith(".meta4") and filename[:-6] not in IGNORE_TESTS:
             mysplit = filename.split("_", 1)
             myint = IsInt(mysplit[0])
             if myint and (int(mysplit[0]) <= int(level)):
