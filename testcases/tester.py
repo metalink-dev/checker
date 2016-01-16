@@ -82,47 +82,47 @@ class TestMetalink(unittest.TestCase):
         clean()
 
     def test_1_create_subdir(self):
-        self.run_test("1_create_subdir.metalink")
+        self.run_test("1_create_subdir.meta4")
     def test_1_empty_size(self):
-        self.run_test("1_empty_size.metalink")
+        self.run_test("1_empty_size.meta4")
     def test_1_fail_bad_directory_and_network_errors(self):
-        self.run_test("1_fail_bad_directory_and_network_errors.metalink")
+        self.run_test("1_fail_bad_directory_and_network_errors.meta4")
     def test_1_http_redirect(self):
-        self.run_test("1_http_redirect.metalink")
+        self.run_test("1_http_redirect.meta4")
     def test_1_metalink_one_file(self):
-        self.run_test("1_metalink_one_file.metalink")
+        self.run_test("1_metalink_one_file.meta4")
     def test_1_metalink_three_files(self):
-        self.run_test("1_metalink_three_files.metalink")
+        self.run_test("1_metalink_three_files.meta4")
     def test_1_no_checksums(self):
-        self.run_test("1_no_checksums.metalink")
+        self.run_test("1_no_checksums.meta4")
     def test_1_only_ftp_and_http(self):
-        self.run_test("1_only_ftp_and_http.metalink")
+        self.run_test("1_only_ftp_and_http.meta4")
     def test_2_fail_metalink_one_file_bad_main_md5(self):
-        self.run_test("2_fail_metalink_one_file_bad_main_md5.metalink")
+        self.run_test("2_fail_metalink_one_file_bad_main_md5.meta4")
     def test_2_only_ftp(self):
-        self.run_test("2_only_ftp.metalink")
+        self.run_test("2_only_ftp.meta4")
     def test_2_only_http(self):
-        self.run_test("2_only_http.metalink")
+        self.run_test("2_only_http.meta4")
     def test_3_fail_bad_only_advanced_checksums(self):
-        self.run_test("3_fail_bad_only_advanced_checksums.metalink")
+        self.run_test("3_fail_bad_only_advanced_checksums.meta4")
     def test_3_fail_metalink_bad_piece1and2(self):
-        self.run_test("3_fail_metalink_bad_piece1and2.metalink")
+        self.run_test("3_fail_metalink_bad_piece1and2.meta4")
     def test_3_fail_metalink_bad_piece2(self):
-        self.run_test("3_fail_metalink_bad_piece2.metalink")
+        self.run_test("3_fail_metalink_bad_piece2.meta4")
     def test_3_only_advanced_checksums(self):
-        self.run_test("3_only_advanced_checksums.metalink")
+        self.run_test("3_only_advanced_checksums.meta4")
     def test_4_empty_size_only_p2p(self):
-        self.run_test("4_empty_size_only_p2p.metalink")
+        self.run_test("4_empty_size_only_p2p.meta4")
     def test_4_fail_metalink_bad_piece1and2_only_p2p(self):
-        self.run_test("4_fail_metalink_bad_piece1and2_only_p2p.metalink")
+        self.run_test("4_fail_metalink_bad_piece1and2_only_p2p.meta4")
     def test_4_fail_metalink_bad_piece2_only_p2p(self):
-        self.run_test("4_fail_metalink_bad_piece2_only_p2p.metalink")
+        self.run_test("4_fail_metalink_bad_piece2_only_p2p.meta4")
     def test_4_fail_metalink_one_file_bad_main_md5_only_p2p(self):
-        self.run_test("4_fail_metalink_one_file_bad_main_md5_only_p2p.metalink")
+        self.run_test("4_fail_metalink_one_file_bad_main_md5_only_p2p.meta4")
     def test_4_no_checksums_only_p2p(self):
-        self.run_test("4_no_checksums_only_p2p.metalink")
+        self.run_test("4_no_checksums_only_p2p.meta4")
     def test_4_only_p2p(self):
-        self.run_test("4_only_p2p.metalink")
+        self.run_test("4_only_p2p.meta4")
 
     def run_test(self, filename):
         subdir = "."
@@ -160,7 +160,7 @@ def suite(level = 3):
     filenames = os.listdir(filedir)
 
     for filename in filenames:
-        if filename.endswith(".metalink") and filename[:-9] not in IGNORE_TESTS:
+        if filename.endswith(".meta4") and filename[:-9] not in IGNORE_TESTS:
             mysplit = filename.split("_", 1)
             myint = IsInt(mysplit[0])
             if myint and (int(mysplit[0]) <= int(level)):
