@@ -97,8 +97,8 @@ class TestMetalink(unittest.TestCase):
         self.run_test("1_no_checksums.metalink")
     def test_1_only_ftp_and_http(self):
         self.run_test("1_only_ftp_and_http.metalink")
-    def test_2_fail_metalink_one_file_bad_main_crc(self):
-        self.run_test("2_fail_metalink_one_file_bad_main_crc.metalink")
+    def test_2_fail_metalink_one_file_bad_main_md5(self):
+        self.run_test("2_fail_metalink_one_file_bad_main_md5.metalink")
     def test_2_only_ftp(self):
         self.run_test("2_only_ftp.metalink")
     def test_2_only_http(self):
@@ -117,8 +117,8 @@ class TestMetalink(unittest.TestCase):
         self.run_test("4_fail_metalink_bad_piece1and2_only_p2p.metalink")
     def test_4_fail_metalink_bad_piece2_only_p2p(self):
         self.run_test("4_fail_metalink_bad_piece2_only_p2p.metalink")
-    def test_4_fail_metalink_one_file_bad_main_crc_only_p2p(self):
-        self.run_test("4_fail_metalink_one_file_bad_main_crc_only_p2p.metalink")
+    def test_4_fail_metalink_one_file_bad_main_md5_only_p2p(self):
+        self.run_test("4_fail_metalink_one_file_bad_main_md5_only_p2p.metalink")
     def test_4_no_checksums_only_p2p(self):
         self.run_test("4_no_checksums_only_p2p.metalink")
     def test_4_only_p2p(self):
