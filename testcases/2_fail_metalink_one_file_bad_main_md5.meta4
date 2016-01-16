@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metalink xmlns="urn:ietf:params:xml:ns:metalink">
-<origin dynamic="true">http://curl.haxx.se/metalink.cgi?curl=tar.bz2</origin>
 <updated>2016-01-16T00:41:05Z</updated>
 <generator>curl Metalink Generator</generator>
 <published>2015-12-02T07:04:19Z</published>
