@@ -156,7 +156,7 @@ def suite(level = 3):
             mysplit = filename.split("_", 1)
             myint = IsInt(mysplit[0])
             if myint and (int(mysplit[0]) <= int(level)):
-                suiteobj.addTest(TestMetalink("test_" + filename[:-9]))
+                suiteobj.addTest(TestMetalink("test_" + filename[:-6]))
   
     return suiteobj
 
