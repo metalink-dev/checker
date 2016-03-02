@@ -80,6 +80,7 @@
 #
 # Version 6.2
 # -----------
+# - Changed packaging to support pip install
 # - Updated to use pymetalink library version 6.2
 #
 # Version 6.0
