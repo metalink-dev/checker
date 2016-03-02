@@ -6,7 +6,7 @@
 # URL: https://github.com/metalink-dev/checker
 # E-mail: nabber00@gmail.com
 #
-# Copyright: (C) 2007-2010, Neil McNab
+# Copyright: (C) 2007-2016, Neil McNab
 # License: GNU General Public License Version 2
 #   (http://www.gnu.org/copyleft/gpl.html)
 #
@@ -279,7 +279,7 @@ class Application:
         init = ""
         if self.filename_txt.get() != "":
             init = os.path.dirname(self.filename_txt.get())
-        result = tkFileDialog.askopenfilename(initialdir = init, title=_("Please select a Metalink file to open") + "...", filetypes=[('Metalink File','*.metalink')])
+        result = tkFileDialog.askopenfilename(initialdir = init, title=_("Please select a Metalink file to open") + "...", filetypes=[('Metalink 3 File','*.metalink'),('Metalink 4 File','*.meta4')])
         if result != "":
             # do file path set here
             self.filename_txt.delete(0, Tkinter.END)
@@ -289,7 +289,7 @@ class Application:
         tkMessageBox.showinfo(_("About") + " " + metalinkc.NAME, metalinkc.ABOUT)
 
     def website(self):
-        webbrowser.open_new_tab(checker.WEBSITE)
+        webbrowser.open_new_tab(metalinkc.WEBSITE)
 
     def exit(self):
         mythread = threading.Thread(target = self.do_cancel)

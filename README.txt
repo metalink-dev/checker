@@ -5,7 +5,7 @@
 # URL: https://github.com/metalink-dev/checker
 # E-mail: nabber00@gmail.com
 #
-# Copyright: (C) 2007-2011, Neil McNab
+# Copyright: (C) 2007-2016, Neil McNab
 # License: GNU General Public License Version 2
 #   (http://www.gnu.org/copyleft/gpl.html)
 #
@@ -77,6 +77,10 @@
 #
 #
 # CHANGELOG:
+#
+# Version 6.2
+# -----------
+# - Updated to use pymetalink library version 6.2
 #
 # Version 6.0
 # -----------

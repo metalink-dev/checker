@@ -12,15 +12,14 @@ import glob
 import zipfile
 
 APP_NAME = 'metalinkc'
-VERSION = '6.1'
+VERSION = '6.2'
 LICENSE = 'GPL'
 DESC = 'A metalink checker and download client.'
 AUTHOR_NAME = 'Neil McNab'
 EMAIL = 'nabber00@gmail.com'
 URL = 'https://github.com/metalink-dev/pymetalink'
 
-PYMETALINK_URL = "https://github.com/metalink-dev/pymetalink/releases/download/v6.1/pymetalink-6.1.zip"
-
+PYMETALINK_URL = "https://github.com/metalink-dev/pymetalink/releases/download/v6.2/pymetalink-6.2.zip"
 
 
 def clean():

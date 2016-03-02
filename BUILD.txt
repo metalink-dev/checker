@@ -4,7 +4,7 @@ You will need the following:
 
 Python 2.7.x - http://www.python.org
 py2exe 0.6.9 - http://www.py2exe.org
-pymetalink 6.1
+pymetalink 6.2 - https://github.com/metalink-dev/pymetalink
 
 The program can be run as a normal Python script if Python is present.  
 Py2exe is not required, it is included only for 

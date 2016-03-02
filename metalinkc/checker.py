@@ -5,7 +5,7 @@
 # URL: https://github.com/metalink-dev/checker
 # E-mail: nabber00@gmail.com
 #
-# Copyright: (C) 2007-2012, Neil McNab
+# Copyright: (C) 2007-2016, Neil McNab
 # License: GNU General Public License Version 2
 #   (http://www.gnu.org/copyleft/gpl.html)
 #
@@ -53,7 +53,7 @@ import locale
 import gettext
 
 NAME="Metalink Checker"
-VERSION="6.0"
+VERSION="6.2"
 
 #WEBSITE="http://www.metalinker.org"
 WEBSITE="http://www.nabber.org/projects/metalink/checker/"
@@ -88,7 +88,7 @@ _ = translate()
 
 ABOUT = NAME + "\n" + _("Version") + ": " + VERSION + "\n" + \
                      _("Website") + ": " + WEBSITE + "\n\n" + \
-                     _("Copyright") + ": 2009-2011 Neil McNab\n" + \
+                     _("Copyright") + ": 2009-2016 Neil McNab\n" + \
                      _("License") + ": " + _("GNU General Public License, Version 2") + "\n\n" + \
                      NAME + _(" comes with ABSOLUTELY NO WARRANTY.  This is free software, and you are welcome to redistribute it under certain conditions, see LICENSE.txt for details.")
 
